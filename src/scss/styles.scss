@@ -1,6 +1,15 @@
-body {
-  background: peru;
-  a {
+@import "_variables";
+
+h2 {
+  color: $bg;
+}
+
+.box {
+  color: $bg;
+  button {
     color: blue;
+    &:hover {
+      color: red;
+    }
   }
 }

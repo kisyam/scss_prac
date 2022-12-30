@@ -10,12 +10,12 @@ const sass = gulpSass(sass2);
 const routes = {
   css: {
     watch: "src/scss/*",
-    src: "src/scss/styles.scss", //style.scss 파일이 관찰되고 있다.
-    dest: "dest/css",
+    src: "src/scss/styles.scss", //style.scss 파일이 관찰되고 있다. css로 컴파일 된다.
+    dest: "dist/css",
   },
 };
 
-const styles = () =>
+const styles = () =>//create style.css 
   gulp
     .src(routes.css.src)
     .pipe(sass().on("error", sass.logError))
@@ -32,7 +32,7 @@ const watch = () => {
   gulp.watch(routes.css.watch, styles);
 };
 
-const clean = async () => await deleteSync(["dest/"]);
+const clean = async () => await deleteSync(["dist/"]);
 
 const prepare = gulp.series([clean]);
 
